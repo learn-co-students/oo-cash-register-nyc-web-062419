@@ -1,3 +1,4 @@
+require 'pry'
 class CashRegister
     
     attr_reader :items, :discount
@@ -19,9 +20,11 @@ class CashRegister
     end
     
     def apply_discount
-        if @discount
-            @total *= (100 - discount) / 100
-            "After the discount, the total comes to $#{@total.to_s}."
+       
+        if @discount != nil
+            
+            @total *= (100 - discount) / 100.0
+            "After the discount, the total comes to $#{@total.round.to_s}."
         else
             "There is no discount to apply."
         end
